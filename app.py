@@ -1,10 +1,17 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Telegram Video Server is running!"
+    return "Hindi Anime Zone Video Server is running!"
+
+@app.route("/health")
+def health():
+    return jsonify({
+        "status": "online",
+        "server": "Hindi Anime Zone Video Server"
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
